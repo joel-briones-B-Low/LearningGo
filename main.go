@@ -1,9 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println("Hello, Learning Go!")
+
+	var age int = 25 // explicit type declaration
+	fmt.Println("Age:", age)
+	newAge := 30.5 // type inference
+	fmt.Println("New Age:", newAge)
+
+	mensage := "Welcome to Go programming!"
+	newMensage := "Hello" + mensage
+	fmt.Println(newMensage)
+
+	total := age + int(newAge) // type conversion
+	fmt.Println("Total Age:", total)
+
+	onlyLow := strings.ToLower(mensage)
+	fmt.Println("Lowercase Message:", onlyLow)
+
 }
 
 /*
