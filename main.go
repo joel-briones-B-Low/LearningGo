@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// conditionals if else ifelse
 	edad := 20
@@ -18,5 +20,11 @@ func main() {
 
 	println("Eres un adulto")
 	println("Fin del programa")
+
+	// bucle for
+	for i := 0; i < 5; i++ {
+		println("Iteración número:", i)
+		fmt.Printf("Iteración número: %d\n", i)
+	}
 
 }
