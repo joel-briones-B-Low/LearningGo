@@ -27,4 +27,36 @@ func main() {
 		fmt.Printf("Iteración número: %d\n", i)
 	}
 
+	// while
+	n := 0
+	for n < 5 {
+		if n == 3 {
+			println("Se encontró el valor 3, se salta la iteración")
+			n++
+			continue
+		}
+		if n == 4 {
+			println("Se encontró el valor 4, se termina el bucle")
+			break
+		}
+
+		println("While Iteración número:", n)
+		n++
+	}
+
+	// infinite loop
+	j := 0
+	for {
+		if j == 3 {
+			println("Bucle infinito")
+			break
+		}
+		if j%2 == 0 {
+			println("Número par, se salta la iteración:", j)
+			j++
+			continue // skip even numbers and their actions
+		}
+		j++
+	}
+
 }
