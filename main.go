@@ -59,4 +59,9 @@ func main() {
 		j++
 	}
 
+	slice := []string{"one", "two", "three"} //range its like for each
+	for index, value := range slice {
+		fmt.Println("Index:", index, "Value:", value)
+	}
+
 }
