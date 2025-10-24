@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
+	defer fmt.Println("End")
 	// conditionals if else ifelse
 	edad := 20
 	/*if edad < 18 {
@@ -62,6 +65,19 @@ func main() {
 	slice := []string{"one", "two", "three"} //range its like for each
 	for index, value := range slice {
 		fmt.Println("Index:", index, "Value:", value)
+	}
+
+	//value := 4
+	value := 2
+	switch value {
+	case 1:
+		fmt.Println("Value is one")
+	case 2:
+		fmt.Println("Value is two")
+	case 3:
+		fmt.Println("Value is three")
+	default:
+		fmt.Println("Value is unknown")
 	}
 
 }
