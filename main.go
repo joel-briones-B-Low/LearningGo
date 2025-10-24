@@ -1,83 +1,55 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
+func plus(numberOne int, numberTwo int) int {
+	return numberOne + numberTwo
+}
+
+// funciont return more of one value
+func slice(a, b float64) (float64, error) {
+	if b == 0 {
+		return 0.0, errors.New("cannot divide by 0")
+	}
+	cociente := a / b
+	return cociente, nil
+}
+
+func printValues(names ...string) {
+	length := len(names)
+	for i, value := range names {
+		if length-1 == i {
+			fmt.Println(value)
+		} else {
+			fmt.Print(value, ", ")
+		}
+	}
+}
+
+func count() func() int {
+	c := 0
+
+	return func() int {
+		c++
+		return c
+	}
+}
 func main() {
-	defer fmt.Println("End")
-	// conditionals if else ifelse
-	edad := 20
-	/*if edad < 18 {
-		println("Eres menor de edad")
-	} else if edad >= 18 && edad < 65 {
-		println("Eres un adulto")
+	//valuePlus := plus(3, 4)
+	//defer fmt.Println(valuePlus)
+	//defer fmt.Println("Defer en main")
+	cociente, err := slice(10, 0)
+	if err != nil {
+		println("Error:", err.Error())
 	} else {
-		println("Eres un adulto mayor")
-	*/
-
-	if edad < 18 {
-		println("Eres menor de edad")
-		return
+		println("Cociente:", cociente)
 	}
 
-	println("Eres un adulto")
-	println("Fin del programa")
-
-	// bucle for
-	for i := 0; i < 5; i++ {
-		println("Iteración número:", i)
-		fmt.Printf("Iteración número: %d\n", i)
-	}
-
-	// while
-	n := 0
-	for n < 5 {
-		if n == 3 {
-			println("Se encontró el valor 3, se salta la iteración")
-			n++
-			continue
-		}
-		if n == 4 {
-			println("Se encontró el valor 4, se termina el bucle")
-			break
-		}
-
-		println("While Iteración número:", n)
-		n++
-	}
-
-	// infinite loop
-	j := 0
-	for {
-		if j == 3 {
-			println("Bucle infinito")
-			break
-		}
-		if j%2 == 0 {
-			println("Número par, se salta la iteración:", j)
-			j++
-			continue // skip even numbers and their actions
-		}
-		j++
-	}
-
-	slice := []string{"one", "two", "three"} //range its like for each
-	for index, value := range slice {
-		fmt.Println("Index:", index, "Value:", value)
-	}
-
-	//value := 4
-	value := 2
-	switch value {
-	case 1:
-		fmt.Println("Value is one")
-	case 2:
-		fmt.Println("Value is two")
-	case 3:
-		fmt.Println("Value is three")
-	default:
-		fmt.Println("Value is unknown")
-	}
-
+	printValues("Alice", "Bob", "Charlie")
+	counter := count()
+	fmt.Println(counter())
+	fmt.Println(counter())
 }
