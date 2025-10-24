@@ -37,19 +37,33 @@ func count() func() int {
 		return c
 	}
 }
+
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
 func main() {
 	//valuePlus := plus(3, 4)
 	//defer fmt.Println(valuePlus)
 	//defer fmt.Println("Defer en main")
-	cociente, err := slice(10, 0)
-	if err != nil {
-		println("Error:", err.Error())
-	} else {
-		println("Cociente:", cociente)
-	}
+	//cociente, err := slice(10, 0)
+	//if err != nil {
+	//	println("Error:", err.Error())
+	//} else {
+	//	println("Cociente:", cociente)
+	//}
 
 	printValues("Alice", "Bob", "Charlie")
 	counter := count()
 	fmt.Println(counter())
 	fmt.Println(counter())
+
+	rect := Rectangle{Width: 10, Height: 5}
+	fmt.Println("Area of rectangle:", rect.Area())
+
 }
